@@ -28,7 +28,7 @@
 		{/block:IndexPage}
 
 		{block:PermalinkPage}
-		<meta property="og:title" content="{PostTitle}" />
+		<meta property="og:title" content="{block:PostTitle}{PostTitle}{/block:PostTitle}" />
 		<meta property="og:description" content="{Title} - a post by @andreasklinger" />
 		<meta property="description" content="{Title} - a post by @andreasklinger" />
 		<meta property="og:type" content="article" />
@@ -107,7 +107,7 @@
 
 			<header id="introduction">
         {block:Title}
-        	<h1>{Title}</h1>
+        	<h1><a href="{PermaLink}">{Title}</a></h1>
 	      {/block:Title}
 
 	      {block:Date}
