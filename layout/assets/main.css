@@ -215,7 +215,7 @@ h2 {
   border-top: 0.058823529411764705em dotted #e8e8e8;
   padding-top: 2.823529411764706em;
 }
-body article:first-child #introduction h1 {
+#quickfix article:first-child #introduction h1 {
   border-top: 0;
   padding-top: 0;
 }
