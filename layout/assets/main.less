@@ -195,6 +195,7 @@ h1, #nav span, h2, h3, #nav a, #author a {
 }
 
 #masthead h1, h2 {
+	.big();
 	text-transform: uppercase;
 	letter-spacing: 1.1/@em;
 }
@@ -530,11 +531,18 @@ h1, h2, h3, p, #nav li {
 		padding-right: 0;
 	}
 
-	#masthead h1, #masthead p, #introduction span, #follow span {
+	#masthead h1, #introduction span, #follow span {
 		display: inline;
 	}
 
+	 #masthead p {
+	 	display: block;
+	 }
+
 	article img {
+		max-width: 100%;
+	}
+	article iframe {
 		max-width: 100%;
 	}
 

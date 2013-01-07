@@ -199,6 +199,8 @@ h3,
 }
 #masthead h1,
 h2 {
+  font-size: 1.3529411764705883em;
+  line-height: 1.0434782608695652em;
   text-transform: uppercase;
   letter-spacing: 0.06470588235294118em;
 }
@@ -486,12 +488,17 @@ article section p img {
     padding-right: 0;
   }
   #masthead h1,
-  #masthead p,
   #introduction span,
   #follow span {
     display: inline;
   }
+  #masthead p {
+    display: block;
+  }
   article img {
+    max-width: 100%;
+  }
+  article iframe {
     max-width: 100%;
   }
 }
