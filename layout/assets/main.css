@@ -211,6 +211,10 @@ h2 {
   text-align: center;
   display: block;
 }
+#introduction h1 {
+  border-top: 0.058823529411764705em dotted #e8e8e8;
+  padding-top: 2.823529411764706em;
+}
 /*
 	Colours & links
 */
