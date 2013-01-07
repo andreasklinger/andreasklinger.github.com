@@ -202,6 +202,9 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 0.06470588235294118em;
 }
+#masthead h1 a {
+  border-bottom: 0;
+}
 #introduction h1,
 #follow h1 {
   text-align: center;
