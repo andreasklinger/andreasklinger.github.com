@@ -248,6 +248,10 @@ a:active {
   color: #616161;
   border-bottom-color: #616161;
 }
+ul,
+ol {
+  margin-bottom: 1.411764705882353em;
+}
 #nav a:active,
 #nav a:active .icon {
   background: #616161;
