@@ -1,0 +1,759 @@
+@import 'helpful-LESS-functions.less';/*
+	Frameless			<http://framelessgrid.com/>
+	by Joni Korpi 		<http://jonikorpi.com/>
+	licensed under CC0	<http://creativecommons.org/publicdomain/zero/1.0/>
+*/
+
+
+@font-size: 17;
+@line: 24;
+@em: @font-size*1em;
+
+@column: 48;
+@gutter: 24;
+
+   @1col:( 1 * (@column + @gutter) - @gutter) / @em;
+  @1cols: @1col;
+  @2cols:( 2 * (@column + @gutter) - @gutter) / @em;
+  @3cols:( 3 * (@column + @gutter) - @gutter) / @em;
+  @4cols:( 4 * (@column + @gutter) - @gutter) / @em;
+  @5cols:( 5 * (@column + @gutter) - @gutter) / @em;
+  @6cols:( 6 * (@column + @gutter) - @gutter) / @em;
+  @7cols:( 7 * (@column + @gutter) - @gutter) / @em;
+  @8cols:( 8 * (@column + @gutter) - @gutter) / @em;
+  @9cols:( 9 * (@column + @gutter) - @gutter) / @em;
+@10cols: (10 * (@column + @gutter) - @gutter) / @em;
+@11cols: (11 * (@column + @gutter) - @gutter) / @em;
+@12cols: (12 * (@column + @gutter) - @gutter) / @em;
+@13cols: (13 * (@column + @gutter) - @gutter) / @em;
+@14cols: (14 * (@column + @gutter) - @gutter) / @em;
+@15cols: (15 * (@column + @gutter) - @gutter) / @em;
+@16cols: (16 * (@column + @gutter) - @gutter) / @em;
+
+.width (@cols:1) {
+	width: (@cols * (@column + @gutter) - @gutter) / @em;
+}
+
+
+/*
+	Margin, padding, and border resets
+	except for form elements
+*/
+
+body, div,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, th, td,
+article, aside, figure, footer, header, hgroup, menu, nav, section {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+
+/*
+	Consistency fixes
+	adopted from http://necolas.github.com/normalize.css/
+*/
+
+html {
+	height: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+body {
+	min-height: 100%;
+	font-size: 100%;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, nav, section, audio, canvas, video {
+	display: block;
+}
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+pre {
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+b, strong {
+	font-weight: bold;
+}
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+input, textarea, button, select {
+	margin: 0;
+	font-size: 100%;
+	line-height: normal;
+	vertical-align: baseline;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+input[type="checkbox"],
+input[type="radio"] {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+		 -o-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+			box-sizing: border-box;
+}
+textarea {
+	overflow: auto;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a img, img {
+	-ms-interpolation-mode: bicubic;
+	border: 0;
+}
+
+
+/*
+	Type presets
+*/
+
+body {
+	font-size: @font-size / 16*1em;
+	line-height: @line / @em;
+	font-family: "Trebuchet MS", sans-serif;
+}
+
+.small, #nav span {
+	font-size: 13/@em;
+	line-height: @line/13*1em;
+}
+
+.normal, h1, h2, h3, h4 {
+	font-size: 1em;
+}
+
+.big {
+	font-size: 23/@em;
+	line-height: 24/23*1em;
+}
+
+.large {
+	font-size: 27/@em;
+	line-height: 36/27*1em;
+}
+
+.huge {
+	font-size: 44/@em;
+	line-height: 48/44*1em;
+}
+
+.enormous {
+	font-size: 72/@em;
+	line-height: 72/72*1em;
+}
+
+.gigantic {
+	font-size: 116/@em;
+	line-height: 120/116*1em;
+}
+
+
+/*
+	Typography
+*/
+
+article p, #colophon p, #recommendations p {
+	-webkit-hyphens: auto;
+	   -moz-hyphens: auto;
+			hyphens: auto;
+}
+
+
+h2 {
+	padding-top: 48/@em;
+}
+
+h3 {
+	margin-top: 24/@em;
+}
+
+h1, #nav span, h2, h3, #nav a, #author a {
+	font-weight: 500;
+}
+
+#masthead h1, h2 {
+	text-transform: uppercase;
+	letter-spacing: 1.1/@em;
+}
+
+#introduction h1, #follow h1 {
+	text-align: center;
+	font-style: italic;
+}
+
+#introduction time {
+	text-align: center;
+	display: block;
+}
+
+/*
+	Colours & links
+*/
+
+@body: rgb(100,100,100);
+@emphasis: rgb(23,23,23);
+@aside: rgb(97,97,97);
+@background: rgb(255,255,255);
+@highlight: rgb(232,232,232);
+@link: rgb(232,76,56);
+
+body {
+	background: @background;
+	color: @body;
+}
+
+h1, h2, h3, h4 {
+	color: @emphasis;
+}
+
+header p {
+	color: @aside;
+}
+
+a {
+	color: @emphasis;
+	text-decoration: none;
+	border-bottom: 1.1/@em solid @emphasis;
+}
+
+	#nav a {
+		border: 0;
+	}
+
+
+a:hover {
+	color: @link;
+	border-bottom-color: @link;
+}
+
+	#nav a:hover, #nav a:hover .icon {
+		background: @link;
+		color: @background;
+	}
+
+a:active {
+	color: @aside;
+	border-bottom-color: @aside;
+}
+
+
+	#nav a:active, #nav a:active .icon {
+		background: @aside;
+	}
+
+::selection {
+	background: @link;
+	color: @background;
+}
+::-moz-selection {
+	background: @link;
+	color: @background;
+}
+img::selection {
+	background: transparent;
+}
+img::-moz-selection {
+	background: transparent;
+}
+body {
+	-webkit-tap-highlight-color: fadeout(@link, 62%);
+}
+
+
+/*
+	Typekit failsafe
+*/
+
+h1, h2, h3, p, #nav li {
+	visibility: visible;
+}
+
+.wf-loading h1,
+.wf-loading h2,
+.wf-loading h3,
+.wf-loading p,
+.wf-loading #nav li {
+	visibility: hidden;
+}
+
+
+/*
+	Common styles
+*/
+
+#masthead, #introduction, article section, #colophon, #recommendations {
+	padding: 0 18/@em;
+	margin: 0 auto;
+	max-width: @8cols;
+}
+
+#masthead {
+	padding-top: 24/@em;
+	text-align: center;
+}
+
+#nav {
+	padding: 24/@em 0 0;
+	height: 48/@em;
+	width: @4cols;
+	margin: 0 auto;
+}
+
+	#nav li {
+		list-style: none;
+		display: block;
+		float: left;
+		width: 48/@em;
+		margin-left: 24/@em;
+	}
+
+		#nav li:first-child {
+			margin-left: 0;
+		}
+
+	#nav a {
+		display: block;
+		text-align: center;
+	}
+
+	#nav .icon {
+		font-size: 28/@em;
+		line-height: (48)/28*1em;
+		background: @emphasis;
+		color: @background;
+		vertical-align: middle;
+	}
+
+#introduction {
+	clear: both;
+	padding: 48/@em 0 24/@em;
+}
+
+	#introduction span, #follow span {
+		display: block;
+	}
+
+#colophon {
+	overflow: hidden;
+	padding-top: 72/@em;
+	padding-bottom: 150/@em;
+}
+
+	#follow {
+		padding-bottom: 23/@em;
+		border-bottom: 2/@em dotted @highlight;
+		margin-bottom: 23/@em;
+	}
+
+	#colophon h2 {
+		padding: 0 0 12/@em;
+	}
+
+	#colophon img {
+		width: 48/@em;
+		float: left;
+	}
+
+	#author {
+		padding-bottom: 24/@em;
+	}
+
+  #author p {
+		padding-left: 60/@em;
+	}
+
+	article p {
+		margin-bottom: 24/@em
+	}
+
+	article section p img {
+		margin: 0 auto;
+		display: block;
+	}
+
+#recommendations {
+	overflow: hidden;
+	border-top: 2/@em dotted @highlight;
+
+	h2 {
+		text-align: center;
+		padding: 48/@em 0 32/@em;
+
+	}
+
+	h3 {
+		margin: 0 0 24/@em;
+		.normal();
+	}
+
+	p {
+		.small();
+	}
+
+	.hover {
+		text-decoration: underline;
+		cursor: pointer;
+	}
+}
+
+/*
+	Old IE fixes
+	http://jonikorpi.com/leaving-old-IE-behind/
+*/
+
+.ie #masthead,
+.ie #introduction,
+.ie article section,
+.ie #colophon {
+	width: @8cols;
+}
+
+.ie #nav {
+	width: (48/@em) + @4cols;
+}
+
+.ie #nav li {
+	display: inline;
+}
+
+.ie #nav li:first-child {
+	margin-left: 24/@em;
+}
+
+
+#pagination {
+	margin: 120/@em auto 60/@em;
+	overflow: auto;
+	display: block;
+
+	div {
+		float:left;
+		width: 50%;
+	}
+	div:last-child {
+		text-align: right;
+	}
+}
+
+/*
+	Full page zooms
+	0.882352941 0.941176471 1.058823529 1.117647059
+*/
+
+@media screen and (max-width: 16.875em) {
+	body {
+		font-size: (@font-size - 2)/16*1em;
+	}
+	#masthead, #introduction, article section, #colophon, #recommendations {
+		padding-left: 10/@em;
+		padding-right: 10/@em;
+	}
+}
+
+@media screen and (max-width: 19.9375em) {
+	body {
+		font-size: (@font-size - 1)/16*1em;
+	}
+}
+
+@media
+	screen and (min-width: 32.5em) and (max-width: 37.4375em),
+	screen and (min-width: 45em) and (max-width: 56.9375em),
+	screen and (min-width: 77.5em) and (max-width: 102.4375em),
+	screen and (min-width: 135em) {
+	body {
+		font-size: (@font-size + 1)/16*1em;
+	}
+}
+
+@media
+	screen and (min-width: 102.5em) and (max-width: 117.9375em),
+	screen and (min-width: 150em) {
+	body {
+		font-size: (@font-size + 2)/16*1em;
+	}
+}
+
+
+/*
+	Mobile layout
+	240–479 px
+	Zoomed out below 320 px
+*/
+
+@media screen and (min-width: 15em) {
+
+	#masthead, #introduction, article section, #colophon, #recommendations, #pagination {
+		width: @4cols;
+		max-width: none;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	#masthead h1, #masthead p, #introduction span, #follow span {
+		display: inline;
+	}
+
+	article img {
+		max-width: 100%;
+	}
+
+}
+
+
+/*
+	Wide mobile layout
+	480-767 px
+	Zoomed in above 480 px
+*/
+
+@media screen and (min-width: 30em) {
+
+	#masthead, #introduction, article section, #colophon, #introduction, #recommendations, #pagination {
+		width: @6cols;
+	}
+
+	#masthead h1, #masthead p, #introduction span, #follow span {
+		display: block;
+	}
+
+	#nav {
+		margin-left: 72/@em;
+	}
+
+}
+
+
+/*
+	Tablet layout
+	600-911 px
+	Zoomed in above 600 px
+*/
+
+@media screen and (min-width: 37.5em) {
+
+	#masthead, #introduction, article section, #colophon, #recommendations, #pagination {
+		width: @8cols;
+	}
+
+	#masthead {
+		text-align: left;
+		position: relative;
+		padding-top: 36/@em;
+	}
+
+		#masthead h1 {
+			margin-right: 4/@em;
+		}
+
+		#masthead p {
+			width: @4cols;
+		}
+
+		#nav {
+			position: absolute;
+			right: 0; top: 12/@em;
+		}
+
+	#introduction {
+		padding-top: 72/@em;
+	}
+
+		#introduction h1, #follow h1 {
+			.large();
+		}
+
+	#content h2, #content h3 {
+		.large();
+		letter-spacing: 1.1/27*1em;
+		padding-top: 72/27*1em;
+	}
+
+	#author {
+		width: @7cols;
+		float: left;
+	}
+
+		#author {
+			padding: 0 24/@em 0 0;
+		}
+
+
+	#recommendations article {
+		width: @3cols;
+		padding-right: @gutter/@em;
+		float: left;
+
+		img {
+			width: @3cols;
+		}
+	}
+
+	#recommendations article:last-child {
+		padding-right: 0;
+	}
+}
+
+
+/*
+	Widescreen layout
+	912-1887 px
+	Zoomed in above 912 px
+*/
+
+@media screen and (min-width: 57em) {
+
+	#masthead, #introduction, #colophon, #recommendations, #pagination {
+		width: @12cols;
+	}
+
+	article section {
+		width: @8cols;
+	}
+
+	#masthead {
+		padding-top: 48/@em;
+	}
+
+		#masthead h1 {
+			.huge();
+			width: auto;
+			letter-spacing: 2/44*1em;
+		}
+
+		#masthead p {
+			position: absolute;
+			left: (64/@em)+ @3cols; top: 48/@em;
+			width: @4cols;
+		}
+
+		#nav {
+			top: 24/@em;
+		}
+
+	#introduction h1 {
+		.huge();
+	}
+
+	#colophon {
+		margin-top: 72/@em;
+		border-top: 2/@em solid @emphasis;
+		padding-top: 22/@em;
+	}
+
+		#follow {
+			float: left;
+			width: @4cols;
+			padding: 36/@em 24/@em 0 0;
+			border: 0;
+		}
+
+			#follow h1 {
+				.normal();
+				text-align: left;
+			}
+
+			#follow span {display: inline;}
+
+}
+
+
+/*
+	Huge-screen layout
+	1888-2520 px
+	Zoomed in above 1920 px
+*/
+
+@media screen and (min-width: 118em) {
+
+	#masthead, article .container, #introduction, #colophon, #recommendations {
+		width: @13cols+@13cols+(24/@em);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+		article section {
+			width: @6cols;
+			margin-left: @1cols+(2*24/@em);
+			float: left;
+		}
+
+
+
+	#masthead h1 {
+		.enormous();
+		letter-spacing: 2/72*1em;
+	}
+
+	#masthead p {
+		.large();
+		top: 48/27*1em;
+		left: (6*(48+24))/27*1em;
+	}
+
+	#introduction {
+		position: relative;
+		padding-top: 48/@em;
+		padding-bottom: 0;
+	}
+
+		#introduction h1 {
+			.large();
+			position: absolute;
+			left: (13*(48+24))/27*1em;
+			top: -72/27*1em;
+			text-align: left;
+		}
+
+	#content h2 {
+		padding-top: 48/27*1em;
+	}
+
+	#colophon {
+		clear: both;
+	}
+
+		#colophon section {
+			padding-bottom: 72/@em;
+		}
+
+		#follow {
+			width: @6cols;
+			padding-top: 0;
+		}
+
+			#follow h1 {
+				.large();
+				font-style: normal;
+			}
+
+		#author {
+			width: @10cols;
+			padding-right: (2*24/@em)+@1col;
+		}
+
+
+}

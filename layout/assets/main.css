@@ -1,0 +1,692 @@
+/**/
+/*
+	Frameless			<http://framelessgrid.com/>
+	by Joni Korpi 		<http://jonikorpi.com/>
+	licensed under CC0	<http://creativecommons.org/publicdomain/zero/1.0/>
+*/
+/*
+	Margin, padding, and border resets
+	except for form elements
+*/
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/*
+	Consistency fixes
+	adopted from http://necolas.github.com/normalize.css/
+*/
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body {
+  min-height: 100%;
+  font-size: 100%;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+audio,
+canvas,
+video {
+  display: block;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+b,
+strong {
+  font-weight: bold;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+input,
+textarea,
+button,
+select {
+  margin: 0;
+  font-size: 100%;
+  line-height: normal;
+  vertical-align: baseline;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+textarea {
+  overflow: auto;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a img,
+img {
+  -ms-interpolation-mode: bicubic;
+  border: 0;
+}
+/*
+	Type presets
+*/
+body {
+  font-size: 1.0625em;
+  line-height: 1.411764705882353em;
+  font-family: "Trebuchet MS", sans-serif;
+}
+.small,
+#nav span {
+  font-size: 0.7647058823529411em;
+  line-height: 1.8461538461538463em;
+}
+.normal,
+h1,
+h2,
+h3,
+h4 {
+  font-size: 1em;
+}
+.big {
+  font-size: 1.3529411764705883em;
+  line-height: 1.0434782608695652em;
+}
+.large {
+  font-size: 1.588235294117647em;
+  line-height: 1.3333333333333333em;
+}
+.huge {
+  font-size: 2.588235294117647em;
+  line-height: 1.0909090909090908em;
+}
+.enormous {
+  font-size: 4.235294117647059em;
+  line-height: 1em;
+}
+.gigantic {
+  font-size: 6.823529411764706em;
+  line-height: 1.0344827586206897em;
+}
+/*
+	Typography
+*/
+article p,
+#colophon p,
+#recommendations p {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+h2 {
+  padding-top: 2.823529411764706em;
+}
+h3 {
+  margin-top: 1.411764705882353em;
+}
+h1,
+#nav span,
+h2,
+h3,
+#nav a,
+#author a {
+  font-weight: 500;
+}
+#masthead h1,
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.06470588235294118em;
+}
+#introduction h1,
+#follow h1 {
+  text-align: center;
+  font-style: italic;
+}
+#introduction time {
+  text-align: center;
+  display: block;
+}
+/*
+	Colours & links
+*/
+body {
+  background: #ffffff;
+  color: #646464;
+}
+h1,
+h2,
+h3,
+h4 {
+  color: #171717;
+}
+header p {
+  color: #616161;
+}
+a {
+  color: #171717;
+  text-decoration: none;
+  border-bottom: 0.06470588235294118em solid #171717;
+}
+#nav a {
+  border: 0;
+}
+a:hover {
+  color: #e84c38;
+  border-bottom-color: #e84c38;
+}
+#nav a:hover,
+#nav a:hover .icon {
+  background: #e84c38;
+  color: #ffffff;
+}
+a:active {
+  color: #616161;
+  border-bottom-color: #616161;
+}
+#nav a:active,
+#nav a:active .icon {
+  background: #616161;
+}
+::selection {
+  background: #e84c38;
+  color: #ffffff;
+}
+::-moz-selection {
+  background: #e84c38;
+  color: #ffffff;
+}
+img::selection {
+  background: transparent;
+}
+img::-moz-selection {
+  background: transparent;
+}
+body {
+  -webkit-tap-highlight-color: rgba(232, 76, 56, 0.38);
+}
+/*
+	Typekit failsafe
+*/
+h1,
+h2,
+h3,
+p,
+#nav li {
+  visibility: visible;
+}
+.wf-loading h1,
+.wf-loading h2,
+.wf-loading h3,
+.wf-loading p,
+.wf-loading #nav li {
+  visibility: hidden;
+}
+/*
+	Common styles
+*/
+#masthead,
+#introduction,
+article section,
+#colophon,
+#recommendations {
+  padding: 0 1.0588235294117647em;
+  margin: 0 auto;
+  max-width: 32.470588235294116em;
+}
+#masthead {
+  padding-top: 1.411764705882353em;
+  text-align: center;
+}
+#nav {
+  padding: 1.411764705882353em 0 0;
+  height: 2.823529411764706em;
+  width: 15.529411764705882em;
+  margin: 0 auto;
+}
+#nav li {
+  list-style: none;
+  display: block;
+  float: left;
+  width: 2.823529411764706em;
+  margin-left: 1.411764705882353em;
+}
+#nav li:first-child {
+  margin-left: 0;
+}
+#nav a {
+  display: block;
+  text-align: center;
+}
+#nav .icon {
+  font-size: 1.6470588235294117em;
+  line-height: 1.7142857142857142em;
+  background: #171717;
+  color: #ffffff;
+  vertical-align: middle;
+}
+#introduction {
+  clear: both;
+  padding: 2.823529411764706em 0 1.411764705882353em;
+}
+#introduction span,
+#follow span {
+  display: block;
+}
+#colophon {
+  overflow: hidden;
+  padding-top: 4.235294117647059em;
+  padding-bottom: 8.823529411764707em;
+}
+#follow {
+  padding-bottom: 1.3529411764705883em;
+  border-bottom: 0.11764705882352941em dotted #e8e8e8;
+  margin-bottom: 1.3529411764705883em;
+}
+#colophon h2 {
+  padding: 0 0 0.7058823529411765em;
+}
+#colophon img {
+  width: 2.823529411764706em;
+  float: left;
+}
+#author {
+  padding-bottom: 1.411764705882353em;
+}
+#author p {
+  padding-left: 3.5294117647058822em;
+}
+article p {
+  margin-bottom: 1.411764705882353em;
+}
+article section p img {
+  margin: 0 auto;
+  display: block;
+}
+#recommendations {
+  overflow: hidden;
+  border-top: 0.11764705882352941em dotted #e8e8e8;
+}
+#recommendations h2 {
+  text-align: center;
+  padding: 2.823529411764706em 0 1.8823529411764706em;
+}
+#recommendations h3 {
+  margin: 0 0 1.411764705882353em;
+  font-size: 1em;
+}
+#recommendations p {
+  font-size: 0.7647058823529411em;
+  line-height: 1.8461538461538463em;
+}
+#recommendations .hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+/*
+	Old IE fixes
+	http://jonikorpi.com/leaving-old-IE-behind/
+*/
+.ie #masthead,
+.ie #introduction,
+.ie article section,
+.ie #colophon {
+  width: 32.470588235294116em;
+}
+.ie #nav {
+  width: 18.352941176470587em;
+}
+.ie #nav li {
+  display: inline;
+}
+.ie #nav li:first-child {
+  margin-left: 1.411764705882353em;
+}
+#pagination {
+  margin: 7.0588235294117645em auto 3.5294117647058822em;
+  overflow: auto;
+  display: block;
+}
+#pagination div {
+  float: left;
+  width: 50%;
+}
+#pagination div:last-child {
+  text-align: right;
+}
+/*
+	Full page zooms
+	0.882352941 0.941176471 1.058823529 1.117647059
+*/
+@media screen and (max-width: 16.875em) {
+  body {
+    font-size: 0.9375em;
+  }
+  #masthead,
+  #introduction,
+  article section,
+  #colophon,
+  #recommendations {
+    padding-left: 0.5882352941176471em;
+    padding-right: 0.5882352941176471em;
+  }
+}
+@media screen and (max-width: 19.9375em) {
+  body {
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 32.5em) and (max-width: 37.4375em), screen and (min-width: 45em) and (max-width: 56.9375em), screen and (min-width: 77.5em) and (max-width: 102.4375em), screen and (min-width: 135em) {
+  body {
+    font-size: 1.125em;
+  }
+}
+@media screen and (min-width: 102.5em) and (max-width: 117.9375em), screen and (min-width: 150em) {
+  body {
+    font-size: 1.1875em;
+  }
+}
+/*
+	Mobile layout
+	240–479 px
+	Zoomed out below 320 px
+*/
+@media screen and (min-width: 15em) {
+  #masthead,
+  #introduction,
+  article section,
+  #colophon,
+  #recommendations,
+  #pagination {
+    width: 15.529411764705882em;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  #masthead h1,
+  #masthead p,
+  #introduction span,
+  #follow span {
+    display: inline;
+  }
+  article img {
+    max-width: 100%;
+  }
+}
+/*
+	Wide mobile layout
+	480-767 px
+	Zoomed in above 480 px
+*/
+@media screen and (min-width: 30em) {
+  #masthead,
+  #introduction,
+  article section,
+  #colophon,
+  #introduction,
+  #recommendations,
+  #pagination {
+    width: 24em;
+  }
+  #masthead h1,
+  #masthead p,
+  #introduction span,
+  #follow span {
+    display: block;
+  }
+  #nav {
+    margin-left: 4.235294117647059em;
+  }
+}
+/*
+	Tablet layout
+	600-911 px
+	Zoomed in above 600 px
+*/
+@media screen and (min-width: 37.5em) {
+  #masthead,
+  #introduction,
+  article section,
+  #colophon,
+  #recommendations,
+  #pagination {
+    width: 32.470588235294116em;
+  }
+  #masthead {
+    text-align: left;
+    position: relative;
+    padding-top: 2.1176470588235294em;
+  }
+  #masthead h1 {
+    margin-right: 0.23529411764705882em;
+  }
+  #masthead p {
+    width: 15.529411764705882em;
+  }
+  #nav {
+    position: absolute;
+    right: 0;
+    top: 0.7058823529411765em;
+  }
+  #introduction {
+    padding-top: 4.235294117647059em;
+  }
+  #introduction h1,
+  #follow h1 {
+    font-size: 1.588235294117647em;
+    line-height: 1.3333333333333333em;
+  }
+  #content h2,
+  #content h3 {
+    font-size: 1.588235294117647em;
+    line-height: 1.3333333333333333em;
+    letter-spacing: 0.040740740740740744em;
+    padding-top: 2.6666666666666665em;
+  }
+  #author {
+    width: 28.235294117647058em;
+    float: left;
+  }
+  #author {
+    padding: 0 1.411764705882353em 0 0;
+  }
+  #recommendations article {
+    width: 11.294117647058824em;
+    padding-right: 1.411764705882353em;
+    float: left;
+  }
+  #recommendations article img {
+    width: 11.294117647058824em;
+  }
+  #recommendations article:last-child {
+    padding-right: 0;
+  }
+}
+/*
+	Widescreen layout
+	912-1887 px
+	Zoomed in above 912 px
+*/
+@media screen and (min-width: 57em) {
+  #masthead,
+  #introduction,
+  #colophon,
+  #recommendations,
+  #pagination {
+    width: 49.411764705882355em;
+  }
+  article section {
+    width: 32.470588235294116em;
+  }
+  #masthead {
+    padding-top: 2.823529411764706em;
+  }
+  #masthead h1 {
+    font-size: 2.588235294117647em;
+    line-height: 1.0909090909090908em;
+    width: auto;
+    letter-spacing: 0.045454545454545456em;
+  }
+  #masthead p {
+    position: absolute;
+    left: 15.058823529411764em;
+    top: 2.823529411764706em;
+    width: 15.529411764705882em;
+  }
+  #nav {
+    top: 1.411764705882353em;
+  }
+  #introduction h1 {
+    font-size: 2.588235294117647em;
+    line-height: 1.0909090909090908em;
+  }
+  #colophon {
+    margin-top: 4.235294117647059em;
+    border-top: 0.11764705882352941em solid #171717;
+    padding-top: 1.2941176470588236em;
+  }
+  #follow {
+    float: left;
+    width: 15.529411764705882em;
+    padding: 2.1176470588235294em 1.411764705882353em 0 0;
+    border: 0;
+  }
+  #follow h1 {
+    font-size: 1em;
+    text-align: left;
+  }
+  #follow span {
+    display: inline;
+  }
+}
+/*
+	Huge-screen layout
+	1888-2520 px
+	Zoomed in above 1920 px
+*/
+@media screen and (min-width: 118em) {
+  #masthead,
+  article .container,
+  #introduction,
+  #colophon,
+  #recommendations {
+    width: 108.70588235294117em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  article section {
+    width: 24em;
+    margin-left: 5.647058823529412em;
+    float: left;
+  }
+  #masthead h1 {
+    font-size: 4.235294117647059em;
+    line-height: 1em;
+    letter-spacing: 0.027777777777777776em;
+  }
+  #masthead p {
+    font-size: 1.588235294117647em;
+    line-height: 1.3333333333333333em;
+    top: 1.7777777777777777em;
+    left: 16em;
+  }
+  #introduction {
+    position: relative;
+    padding-top: 2.823529411764706em;
+    padding-bottom: 0;
+  }
+  #introduction h1 {
+    font-size: 1.588235294117647em;
+    line-height: 1.3333333333333333em;
+    position: absolute;
+    left: 34.666666666666664em;
+    top: -2.6666666666666665em;
+    text-align: left;
+  }
+  #content h2 {
+    padding-top: 1.7777777777777777em;
+  }
+  #colophon {
+    clear: both;
+  }
+  #colophon section {
+    padding-bottom: 4.235294117647059em;
+  }
+  #follow {
+    width: 24em;
+    padding-top: 0;
+  }
+  #follow h1 {
+    font-size: 1.588235294117647em;
+    line-height: 1.3333333333333333em;
+    font-style: normal;
+  }
+  #author {
+    width: 40.94117647058823em;
+    padding-right: 5.647058823529412em;
+  }
+}

@@ -1,0 +1,213 @@
+<!doctype html>
+<!--[if lt IE 9]><html class="ie"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+		<title>{block:PostTitle}{PostTitle} - {/block:PostTitle}{Title}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="assets/main.css"/>
+
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+<!-- 		<link rel="shortcut icon" href="assets/favicon.png"/>
+		<link rel="apple-touch-icon" sizes="114x114" href="assets/icon.png"/> -->
+		<script src="//code.jquery.com/jquery-1.8.3.min.js"></script>
+
+
+		{block:IndexPage}
+		<meta property="og:title" content="{Title}" />
+		<meta property="og:description" content="#product #metrics #marketing - Learning the hard way - By @andreasklinger" />
+		<meta property="description" content="#product #metrics #marketing - Learning the hard way - By @andreasklinger" />
+		<meta property="og:type" content="website" />
+		{/block:IndexPage}
+
+		{block:PermalinkPage}
+		<meta property="og:title" content="{PostTitle}" />
+		<meta property="og:description" content="{Title} - a post by @andreasklinger" />
+		<meta property="description" content="{Title} - a post by @andreasklinger" />
+		<meta property="og:type" content="article" />
+		{/block:PermalinkPage}
+
+		<script type="text/javascript">
+			$(function() {
+
+				$("#recommendations article").hover(
+					function() {
+						$(this).addClass("hover");
+						$(this).css("-webkit-transform", "rotate(" + (Math.floor(Math.random() * 90) - 45) + "deg)");
+
+					},
+					function() {
+						$(this).removeClass("hover");
+					}
+				).on("click", function(e) {
+					window.location.href = $(this).attr("data-href");
+				});
+
+			});
+		</script>
+	</head>
+
+	<body lang="en">
+
+		<header id="masthead">
+			<h1>Startup <br/>Lessons <span style="font-size: 20%; line-height: 12px; display: block; margin: 1em 0 2em;">#product #metrics #marketing<br/>Learning the hard way<br/>BY <a href="http://www.twitter.com/andreasklinger">@andreasklinger</a></span></h1>
+			<p>
+				<a href="https://twitter.com/intent/tweet?text=%22I%20am%20good%20in%202%20things%20Making%20people%20believe%20I%20am%20good%20in%20anything%20at%20all%20%26%20making%20stuff%20worth%20a%20tweet%22%20%40andreasklinger%20http%3A%2F%2Fklinger.io" style="font-size: 74%;">I am a product-guy good in two things: <br/> Making people believe I am good in anything at all and making stuff worth a tweet.</a>
+				<span style="font-size:74%"><br/>On this website I share notes &amp; thoughts.</span>
+			</p>
+			<nav id="nav">
+				<ul>
+					<li>
+						<a href="#author">
+							<div class="icon">
+								☺
+							</div>
+							<span>About</span>
+						</a>
+					</li>
+					<li>
+						<a href="#author">
+							<div class="icon">
+								&dArr;
+							</div>
+							<span>Work</span>
+						</a>
+					</li>
+					<li>
+						<a href="http://www.slideshare.net/andreasklinger">
+							<div class="icon">
+								▭
+							</div>
+							<span>Slides</span>
+						</a>
+					</li>
+					<li>
+						<a href="#author">
+							<div class="icon">
+								&#9825;
+							</div>
+							<span>Follow</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+    {block:Posts}
+    {block:Text}
+		<article>
+
+			<header id="introduction">
+        {block:Title}
+        	<h1>{Title}</h1>
+	      {/block:Title}
+
+	      {block:Date}
+          <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}">
+            {DayOfMonth}{DayOfMonthSuffix} {Month} {Year}
+          </time>
+        {/block:Date}
+
+			</header>
+
+
+			<div class="container">
+
+				<section id="content">
+					{Body}
+				</section>
+
+				<section id="share">
+					<div class="fb-like" data-href="{Permalink}" data-send="false" data-width="450" data-show-faces="true"></div>
+				</section>
+
+			</div>
+
+		</article>
+    {/block:Text}
+		{/block:Posts}
+
+		<nav id="pagination">
+      <div class="older">
+          {block:PreviousPage}
+              <a href="{PreviousPage}">&#171; Previous Posts</a>
+          {/block:PreviousPage}
+      </div>
+      <div class="newer">
+        {block:NextPage}
+          <a href="{NextPage}">Newer Posts &#187;</a>
+        {/block:NextPage}
+      </div>
+    </nav>
+
+		{block:PermalinkPage}
+		<div id="recommendations">
+			<h2>Thanks for reading! You might also like one of these articles</h2>
+			<article data-href="http://klinger.io/post/37192659101/startup-mentoring-sessions-how-to-be-a-decent-maybe">
+				<h3>The Founder’s Lie About Comfort Zones</h3>
+				<p><img src="http://media.tumblr.com/tumblr_m6quaovsl91r5v9i8.png" alt="The Founder’s Lie About Comfort Zones" /></p>
+				<p>
+					We run startups – we are constantly at the border of our comfort zone. Aren’t we? No we are not. We are just better in lying - especially to ourselves.
+				</p>
+			</article>
+			<article data-href="http://klinger.io/post/37192659101/startup-mentoring-sessions-how-to-be-a-decent-maybe">
+				<h3>Startup Mentoring Sessions: How to get the most out of it.</h3>
+				<p><img src="http://media.tumblr.com/tumblr_me92x0bKlS1r5v9i8.jpg" alt="Startup Mentoring Sessions: How to get the most out of it." /></p>
+				<p>
+					In the last 4 years I have been to countless mentoring sessions. I wanted to share a few of my lessons i have made during those sessions to help you get more out of yours.
+				</p>
+			</article>
+			<article data-href="http://klinger.io/post/37192659101/startup-mentoring-sessions-how-to-be-a-decent-maybe">
+				<h3>Startup Mentoring Sessions: How to be a decent, maybe even good startup mentor.</h3>
+				<p><img src="http://media.tumblr.com/tumblr_me5aavKi5S1r5v9i8.jpg" alt="Startup Mentoring Sessions: How to be a decent, maybe even good startup mentor." /></p>
+				<p>
+					How to be the perfect startup mentor? I don’t know. But following the best practices mentioned in this article I got personally at least to the “not-so-shitty” level.
+				</p>
+			</article>
+			<article data-href="http://klinger.io/post/16308736248/the-things-first-time-founders-do">
+				<h3>The things first time founders do…</h3>
+				<p><img src="http://media.tumblr.com/492ca7715368f2fd70f8f88b32266c6f/tumblr_inline_mg9u82mdUw1r5v9i8.jpg" alt="he things first time founders do…T" /></p>
+				<p>
+					Rob Fitzpatrick asked me on short notice to join a panel at #foundersexchange about what first time founders shouldn’t do. I quickly took a moment to write down some typical things. Some became many… Many became a lot.
+				</p>
+			</article>
+		</div>
+		{/block:PermalinkPage}
+
+		<footer id="colophon">
+			<section id="follow">
+				<h1>You should <a href="http://www.twitter.com/andreasklinger">follow me on twitter</a>. I got a literature prize for my tweets. No kidding.</h1>
+			</section>
+			<section id="author">
+				<h2>#About</h2>
+				<img src="http://graph.facebook.com/andreasklinger/picture?type=large" />
+				<p><a href="http://www.twitter.com/andreasklinger">Andreas Klinger</a> &mdash;
+				I am a product-centric startup founder from Europe.</p>
+				<p id="speaker"><span style="font-size: 75%">
+					I try to help others by mentoring and speaking.<br/>
+					Among other events at Seedcamp, HowToWeb, Leancamp, Lean Startup Machine, Startup Weekend, LeWeb, IncrediblEurope, StartEurope, StartupLive, HNLondon, Failboat, LBS, FashionCamp, several Fashion Weeks and many others… <a href="http://www.dex.io/andreasklinger">hint hint.</a></span>
+				</p>
+				<p><span style="font-size: 75%">I will publish a proper about page asap.</span></p>
+				<p><span style="font-size: 75%">If i can help you or your startup anyhow - feel free to <a href="http://www.twitter.com/andreasklinger">reach out</a>.</span></p>
+
+			</section>
+
+		</footer>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=293813047404304";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+	</body>
+
+</html>
