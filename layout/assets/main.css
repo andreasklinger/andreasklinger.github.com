@@ -501,6 +501,10 @@ article section p img {
   article iframe {
     max-width: 100%;
   }
+  #share {
+    overflow: hidden;
+    display: block;
+  }
 }
 /*
 	Wide mobile layout
