@@ -184,10 +184,10 @@ article p,
   hyphens: auto;
 }
 h2 {
-  padding-top: 2.1176470588235294em;
+  padding: 1.411764705882353em 0 1.0588235294117647em;
 }
 h3 {
-  margin-top: 1.411764705882353em;
+  margin: 1.411764705882353em 0 1.0588235294117647em;
 }
 h1,
 #nav span,
@@ -720,7 +720,7 @@ article section p img {
   }
 }
 strong {
-  color: #2e2e2e;
+  color: #171717;
 }
 blockquote {
   padding-left: 1em;
