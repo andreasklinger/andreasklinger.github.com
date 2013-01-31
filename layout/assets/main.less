@@ -784,5 +784,24 @@ h1, h2, h3, p, #nav li {
 			padding-right: (2*24/@em)+@1col;
 		}
 
+}
 
+
+strong {
+	color: darken(@aside, 20%);
+}
+blockquote {
+	padding-left: 1em;
+
+	p {
+		border-left: 2px solid @highlight;
+		padding-left: 1em;
+		font-style: italic;
+		color: lighten(@aside, 20%);
+	}
+
+	p a {
+		color: @aside;
+		border-bottom: 1px solid @aside;
+	}
 }

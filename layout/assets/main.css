@@ -719,3 +719,19 @@ article section p img {
     padding-right: 5.647058823529412em;
   }
 }
+strong {
+  color: #2e2e2e;
+}
+blockquote {
+  padding-left: 1em;
+}
+blockquote p {
+  border-left: 2px solid #e8e8e8;
+  padding-left: 1em;
+  font-style: italic;
+  color: #949494;
+}
+blockquote p a {
+  color: #616161;
+  border-bottom: 1px solid #616161;
+}
