@@ -386,10 +386,12 @@ article section,
 }
 article p {
   margin-bottom: 1.5em;
+  line-height: 1.625em;
 }
 article section p img {
   margin: 0 auto;
   display: block;
+  margin-top: 20px;
 }
 #recommendations {
   overflow: hidden;
