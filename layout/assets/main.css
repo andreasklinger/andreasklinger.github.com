@@ -269,6 +269,9 @@ ol {
   margin-bottom: 1.5em;
   margin-left: 1.25em;
 }
+#nav ul {
+  margin-left: 0;
+}
 #nav a:active,
 #nav a:active .icon {
   background: #616161;
