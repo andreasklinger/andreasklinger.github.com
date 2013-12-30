@@ -8,8 +8,8 @@
 
 		<title>{block:PostTitle}{PostTitle} - {/block:PostTitle}{Title}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
- 		<link rel="stylesheet" href="assets/main.css"/>
-		<!--<link rel="stylesheet" href="//andreasklinger.github.com/layout/assets/main.css"/> -->
+ 		<!-- <link rel="stylesheet" href="assets/main.css"/> -->
+		<link rel="stylesheet" href="//andreasklinger.github.com/layout/assets/main.css"/>
 
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -36,6 +36,14 @@
 
 		<script type="text/javascript">
 			$(function() {
+
+				// Not proud of this. But no idea how to tell FB not to index the wrong pictures.
+
+				$(window).on("load", function(e) {
+					$("#recommendations article p.img").each(function() {
+						$(this).html("<img src=\"" + $(this).attr("data-src") + "\" />");
+					});
+				});
 
 				$("#recommendations article").hover(
 					function() {
@@ -151,39 +159,33 @@
 		{block:PermalinkPage}
 		<div id="recommendations">
 			<h2>Thanks for reading! You might also like one of these articles</h2>
-			<article data-href="http://klinger.io/post/37192659101/startup-mentoring-sessions-how-to-be-a-decent-maybe">
+			<article data-href="http://klinger.io/post/36585126176/the-founders-lie-about-comfort-zones">
 				<h3>The Founder’s Lie About Comfort Zones</h3>
-				<p><img src="http://media.tumblr.com/tumblr_m6quaovsl91r5v9i8.png" alt="The Founder’s Lie About Comfort Zones" /></p>
+				<p class="img" data-src="http://media.tumblr.com/tumblr_m6quaovsl91r5v9i8.png" alt="The Founder’s Lie About Comfort Zones">&nbsp;</p>
 				<p>
 					We run startups – we are constantly at the border of our comfort zone. Aren’t we? No we are not. We are just better in lying - especially to ourselves.
 				</p>
 			</article>
-			<article data-href="http://klinger.io/post/37192659101/startup-mentoring-sessions-how-to-be-a-decent-maybe">
+			<article data-href="http://klinger.io/post/36812415337/startup-mentoring-sessions-how-to-get-the-most-out-of">
 				<h3>Startup Mentoring Sessions: How to get the most out of it.</h3>
-				<p><img src="http://media.tumblr.com/tumblr_me92x0bKlS1r5v9i8.jpg" alt="Startup Mentoring Sessions: How to get the most out of it." /></p>
+				<p class="img" data-src="http://media.tumblr.com/tumblr_me92x0bKlS1r5v9i8.jpg" alt="Startup Mentoring Sessions: How to get the most out of it.">&nbsp;</p>
 				<p>
 					In the last 4 years I have been to countless mentoring sessions. I wanted to share a few of my lessons i have made during those sessions to help you get more out of yours.
 				</p>
 			</article>
-			<article data-href="http://klinger.io/post/37192659101/startup-mentoring-sessions-how-to-be-a-decent-maybe">
-				<h3>Startup Mentoring Sessions: How to be a decent, maybe even good startup mentor.</h3>
-				<p><img src="http://media.tumblr.com/tumblr_me5aavKi5S1r5v9i8.jpg" alt="Startup Mentoring Sessions: How to be a decent, maybe even good startup mentor." /></p>
+			<article data-href="http://klinger.io/post/39650373908/why-the-future-needs-a-brandname">
+				<h3>Why the future needs a brandname..</h3>
+				<p class="img" data-src="http://media.tumblr.com/tumblr_me5aavKi5S1r5v9i8.jpg" alt="Startup Mentoring Sessions: How to be a decent, maybe even good startup mentor.">&nbsp;</p>
 				<p>
-					How to be the perfect startup mentor? I don’t know. But following the best practices mentioned in this article I got personally at least to the “not-so-shitty” level.
+					There is a disenchantment in our generation. We are still sitting on our lonely planet without space travel nor flying cars or at least hover boards. Maybe the Singularity will save us!
 				</p>
 			</article>
 			<article data-href="http://klinger.io/post/16308736248/the-things-first-time-founders-do">
 				<h3>The things first time founders do…</h3>
-				<p><img src="http://media.tumblr.com/492ca7715368f2fd70f8f88b32266c6f/tumblr_inline_mg9u82mdUw1r5v9i8.jpg" alt="he things first time founders do…T" /></p>
+				<p class="img" data-src="http://media.tumblr.com/492ca7715368f2fd70f8f88b32266c6f/tumblr_inline_mg9u82mdUw1r5v9i8.jpg" alt="he things first time founders do…T">&nbsp;</p>
 				<p>
 					Rob Fitzpatrick asked me on short notice to join a panel at #foundersexchange about what first time founders shouldn’t do. I quickly took a moment to write down some typical things. Some became many… Many became a lot.
 				</p>
-				<ul>
-					<li>Lorem ipsum dolor sit amet</li>
-					<li>consectetur adipisicing elit, sed do eiusmod</li>
-					<li>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</li>
-					<li>quis nostrud exercitation ullamco laboris</li>
-				</ul>
 			</article>
 		</div>
 		{/block:PermalinkPage}
