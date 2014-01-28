@@ -247,23 +247,16 @@ _xxx.trackPage();
 </script>
 
 <script type="text/javascript">
-var fb_param = {};
-fb_param.pixel_id = '6012217247289';
-fb_param.value = '0.00';
-fb_param.currency = 'USD';
-(function(){
-  var fpw = document.createElement('script');
-  fpw.async = true;
-  fpw.src = '//connect.facebook.net/en_US/fp.js';
-  var ref = document.getElementsByTagName('script')[0];
-  ref.parentNode.insertBefore(fpw, ref);
-})();
+  (function() {
+    window._pa = window._pa || {};
+    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+    pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.perfectaudience.com/serve/52e63d6ec1eabd5607000016.js";
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+  })();
 
-window._fbq = window._fbq || [];
-_fbq.push(['track', 'Visit'])
+  window._pq = window._pq || [];
+  _pq.push(['track', 'Visit']);
 </script>
-<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6012217247289&amp;value=0&amp;currency=USD" /></noscript>
-
 	</body>
 
 </html>
