@@ -1,0 +1,83 @@
+/* Verhindert das Scrollen, wenn der Preloader aktiv ist */
+
+body.no-scroll {
+  max-width: 100%;
+}
+
+.equal-flex {
+  flex: 1 0 0;
+}
+
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-responsive iframe, .video-responsive object, .video-responsive embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  padding-left: 1.5rem!important;
+  padding-right: 1.5rem!important;
+  max-width: 1400px!important;
+}
+
+a, a:visited {
+  color: inherit;
+  text-decoration: none;
+  text-decoration-color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.bordered-heading {
+  padding: 8px;
+  border: 1px solid black;
+}
+
+.heading-box {
+  width: -moz-fit-content;
+  width: fit-content!important;
+  border: 1px solid black;
+  padding: 8px;
+}
+
+@media (max-width: 576px) {
+  .z-3 {
+    padding: 4px!important;
+  }
+}
+
+html, body {
+  scroll-behavior: smooth!important;
+  text-transform: uppercase!important;
+  overflow-x: clip;
+}
+
+.zoom-hover {
+  overflow: hidden;
+  display: inline-block;
+  line-height: 0;
+}
+
+.zoom-hover img {
+  transition: transform 0.4s ease;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.zoom-hover:hover img, .zoom-hover:active img {
+  transform: scale(1.1);
+}
+

@@ -1,1 +1,492 @@
-add stuff here.
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>PROTOTYPE_V21</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/IBM%20Plex%20Mono.css">
+    <link rel="stylesheet" href="assets/css/bss-overrides.css">
+    <link rel="stylesheet" href="assets/css/aos.min.css">
+    <link rel="stylesheet" href="assets/css/accordion.css">
+    <link rel="stylesheet" href="assets/css/Button.css">
+    <link rel="stylesheet" href="assets/css/companies.css">
+    <link rel="stylesheet" href="assets/css/EU-spline.css">
+    <link rel="stylesheet" href="assets/css/preloader.css">
+    <link rel="stylesheet" href="assets/css/responsive-fonts.css">
+    <link rel="stylesheet" href="assets/css/scroll-video.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/testimonial.css">
+</head>
+
+<body id="top" style="background: #e6e6e6;text-transform: uppercase;font-size: 0.666rem;">
+    <div id="preloader"><img id="preloader-logo" src="assets/img/Logo+slogan.png" style="filter: invert(1);"></div>
+<div class="custom-mobile-menu-container" id="customMobileMenu">
+    <div class="custom-mobile-menu-header" id="menuMobileHeader">
+        <span id="menuMobileText">Menu</span>
+    </div>
+    <div class="custom-mobile-menu-content">
+        <!-- ======================================== -->
+        <!-- FÜGEN SIE HIER IHRE 3 BUTTONS EIN         -->
+        <a href="#portfolio" class="btn btn-primary mb-2 btn_white" style="border-radius: 0;border-width: 0px;border-color: #e31961;color: rgb(0,0,0);background: rgba(255,255,255,0.3);font-size: 16px;line-height: 10px;text-transform: uppercase;padding: 8px;backdrop-filter: blur(2px);-webkit-backdrop-filter: blur(2px);">Portfolio</a>
+        <a href="#euinc" class="btn btn-secondary mb-2 btn_white" style="border-radius: 0;border-width: 0px;border-color: #e31961;color: rgb(0,0,0);background: rgba(255,255,255,0.3);font-size: 16px;line-height: 10px;text-transform: uppercase;padding: 8px;backdrop-filter: blur(2px);-webkit-backdrop-filter: blur(2px);">eu–inc</a>
+        <a href="https://www.youtube.com/channel/UCI8QkjESeS67n1HZ51hrO1g?sub_confirmation=1" class="btn btn-danger btn_blue" style="border-radius: 0;border-width: 0px;border-color: #e31961;color: rgb(255,255,255);background: #2A13FE;font-size: 16px;line-height: 10px;text-transform: uppercase;padding: 8px;">Subscribe on yt</a>
+        <!-- ======================================== -->
+    </div>
+</div>
+
+<style>
+    /* Der Hauptcontainer für das Menü */
+    .custom-mobile-menu-container {
+        display: none; 
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1050;
+        width: 52px;    
+        height: 26px;
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(2px);
+        cursor: pointer;
+        overflow: hidden;
+        transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+    }
+
+    /* Media Query: Gilt nur für Bildschirme bis 650px Breite */
+    @media (max-width: 650px) {
+        /* Macht das mobile Menü sichtbar */
+        .custom-mobile-menu-container {
+            display: block;
+        }
+
+        /* Blendet die Desktop-Navigation aus, wenn das mobile Menü aktiv ist */
+        #navbar {
+            display: none !important;
+        }
+    }
+
+    /* Der geöffnete Zustand des Containers */
+    .custom-mobile-menu-container.is-open {
+        width: 175px;
+        height: 160px;
+    }
+
+    /* Der klickbare Header-Bereich */
+    .custom-mobile-menu-header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 6px;
+        width: 100%;
+        height: 26px;
+        color: #343a40;
+        user-select: none;
+        white-space: nowrap;
+        font-size: 16px;
+    }
+
+    /* Der Inhaltsbereich, der die Buttons hält */
+    .custom-mobile-menu-content {
+        padding: 30px 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        transition-delay: 0.1s;
+    }
+    
+    .custom-mobile-menu-content .btn {
+        white-space: nowrap;
+    }
+
+    /* Macht den Inhalt sichtbar, wenn der Container geöffnet ist */
+    .custom-mobile-menu-container.is-open .custom-mobile-menu-content {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuContainer = document.getElementById('customMobileMenu');
+        const menuHeader = document.getElementById('menuMobileHeader');
+        const menuText = document.getElementById('menuMobileText');
+        const menuLinks = document.querySelectorAll('.custom-mobile-menu-content a');
+
+        function closeMenu() {
+            menuText.textContent = 'Menu';
+            menuContainer.classList.remove('is-open');
+        }
+
+        menuHeader.addEventListener('click', function(event) {
+            // Verhindert, dass der Klick auf den Header vom window-Listener (siehe unten) verarbeitet wird
+            event.stopPropagation(); 
+            
+            const isOpen = menuContainer.classList.contains('is-open');
+            if (isOpen) {
+                closeMenu();
+            } else {
+                menuText.textContent = 'Close';
+                menuContainer.classList.add('is-open');
+            }
+        });
+        
+        menuLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                closeMenu();
+            });
+        });
+        
+        // NEU: Listener für Klicks außerhalb des Menüs
+        window.addEventListener('click', function(event) {
+            // Prüft, ob das Menü offen ist
+            const isOpen = menuContainer.classList.contains('is-open');
+            
+            // Wenn das Menü offen ist UND das geklickte Element NICHT das Menü selbst oder ein Teil davon ist...
+            if (isOpen && !menuContainer.contains(event.target)) {
+                // ...dann schließe das Menü.
+                closeMenu();
+            }
+        });
+
+        // Verhindert, dass ein Klick IM Menü (aber nicht auf einen Link) es schließt
+        menuContainer.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    });
+</script>
+
+    <div class="position-fixed d-flex z-3 justify-content-end" id="navbar" style="right: 0"><a class="btn btn-primary btn-sm end-0 z-3 me-5 mt-4 mb-0 btn_white" role="button" style="border-radius: 0;border-width: 0px;border-color: #e31961;color: rgb(0,0,0);background: rgba(255,255,255,0.3);font-size: 1rem;line-height: 10px;text-transform: uppercase;padding: 8px;backdrop-filter: blur(2px);-webkit-backdrop-filter: blur(2px);" data-bs-target="#portfolio" href="#portfolio" target="_top">PORTFOLIO</a><a class="btn btn-primary btn-sm end-0 z-3 me-5 mt-4 mb-0 btn_white" role="button" style="border-radius: 0;border-width: 0px;border-color: #e31961;color: rgb(0,0,0);background: rgba(255,255,255,0.3);font-size: 1rem;line-height: 10px;text-transform: uppercase;padding: 8px;backdrop-filter: blur(2px);-webkit-backdrop-filter: blur(2px);" href="#euinc">EU–INC.</a><a class="btn btn-primary btn-sm end-0 z-3 me-4 mt-4 mb-0 btn_blue" role="button" style="border-radius: 0;color: rgb(255,255,255);background: #2A13FE;font-size: 1rem;line-height: 10px;text-transform: uppercase;padding: 8px;border-width: 1px;border-color: rgba(227,25,97,0);" href="http://youtube.com/@prototypecap?sub_confirmation=1" target="_blank">subscribe on YT</a></div><div class="video-scroll-container">
+    <section class="video-section">
+        <canvas id="scroll-canvas" class="background-video"></canvas>
+    </section>
+</div>
+    <div id="content-wrapper" class="content-wrapper">    <div class="overlay-content">
+            <img class="img-fluid mb-3" src="assets/img/Logo+slogan.png" style="max-width: min(40vw, 1000px);min-width: 250px;" />
+            <p>Automation, Industrialisation, AI, Robotics, Space-Tech, Developer Tools, Hardware, Manufacturing.
+Cool Stuff, Hard Stuff,
+Weird Stuff – Europe wide.</p>
+        </div>
+        <div id="main-content" class="main-content">
+            <section class="overflow-hidden mt-7 pt-6 mb-7 eu-flag-section" data-aos="fade-up" data-aos-duration="750">
+                <div class="container">
+                    <div class="row gx-5">
+                        <div class="col-md-6" style="margin-bottom: 5rem;">
+                            <h2 class="d-inline-block me-0 mb-3" style="border: 1px solid rgb(0,0,0);">Prototype&nbsp;is a&nbsp;solo-GP fund&nbsp; investing in european frontier tech early</h2>
+                            <p style="/*font-size: 1rem;*/">$200k – $400k checks<br>first-check, first-round, pre-seed<br>we frequently help setting up the round<br>We focus on frontier tech in europe<br>35-45 investments per year&nbsp;<br><br>led by @andreas klinger</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h2 class="d-inline-block mb-3" style="border: 1px solid rgb(0,0,0);">tier-1 Funds that invest with or after us</h2>
+                            <div class="d-flex">
+                                <p class="equal-flex">root.vc,<br>General Catalyst,<br>A* Capital,<br>Amplify Partners,<br>All-In Capital,<br>20 VC,<br>NVIDIA,<br>Accel,<br>Index,<br>Shrug,<br>Boldstart,</p>
+                                <p class="equal-flex" style="padding-right: 1rem;padding-left: 1rem;">Sequoia, <br>Point Nine, <br>a16z, <br>Matrix, <br>Tiny.vc, <br>Blueyard, <br>Craft Ventures, <br>Weekend Fund, <br>LocalGlobe, <br>Kleiner Perkins, <br>Village Global,</p>
+                                <p class="equal-flex">Sequoia, <br>Point Nine, <br>a16z, <br>Matrix, <br>Tiny.vc, <br>Blueyard, <br>Craft Ventures, <br>Weekend Fund, <br>LocalGlobe, <br>Kleiner Perkins, <br>Village Global,&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="d-flex justify-content-center mt-4 mb-0 pb-0" data-aos="fade-left" data-aos-duration="750"><div style="position: relative; display: inline-block; ">
+  <video autoplay loop muted playsinline style="display: block; width: 100%;">
+    <source src="https://snapdoor2.github.io/Video_Host_prototype/Flag_with_bg.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div style="content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; box-shadow: inset 0 0 50px 20px #e6e6e6;"></div>
+</div></section>
+            <section class="mb-9">
+                <div class="container" data-aos="fade-left" data-aos-duration="700">
+                    <h2 class="d-inline-block me-0 mb-3" style="border: 1px solid rgb(0,0,0);">we build the europe we want.</h2>
+                    <p style="/*font-size: 1rem;*/margin: 0px;">What we believe.</p>
+                    <ul style="padding-left: 1rem;">
+                        <li>Europe will realize its potential as #1 deep-tech hub.</li>
+                        <li>Policy work, meet-ups, hacker houses. We actively build our startup ecosystem.</li>
+                        <li>Technology is our tool to improve the world.</li>
+                        <li>Big genius ideas evolve from stupid small ideas.</li>
+                        <li>Shipping &gt; Building &gt; Talking.</li>
+                    </ul><a class="btn btn-primary mb-4 btn_pink" role="button" style="padding: 8px;border-radius: 0;border-width: 0px;border-color: #e31961;color: rgb(255,255,255);background: #e31961;font-size: 1.2rem;text-transform: uppercase;line-height: 0.8rem;" href="https://www.eu-inc.org/" target="_blank">Let’s Fix this</a>
+                </div>
+            </section>
+            <section class="mb-0" data-aos="fade-up" data-aos-duration="750" id="yt-video">
+                <div class="container mt-8" style="max-width: 1920px;padding: 0px;">
+                    <h2 class="d-inline-block me-0 mb-4" style="border: 1px solid rgb(0,0,0);">we feature the most ambitious european startups.</h2>
+                </div>
+                <div class="container" style="padding: 0px;max-width: 1920px;">
+                    <div class="video-responsive"><iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/DOo8n19XEns" width="100%"></iframe></div>
+                </div>
+            </section>
+            <section class="pt-8 mb-5" id="portfolio">
+                <div class="container mt-4 mb-6" data-aos="fade-right" data-aos-duration="750" style="padding: 0px;max-width: 1920px;">
+                    <h2 class="d-inline-block me-0" style="border: 1px solid rgb(0,0,0);">we work with amazing companies</h2>
+                    <p class="mb-0" style="/*font-size: 1rem;*/max-width: 500px;">We bet early. Years in hyper-growth startups taught us what traction looks like. We try to be a hands-on operator. Not just another board seat. no fancy meetings, no fake marketing. Our goal: create real, authentic community.</p>
+                </div>
+                <div class="container" style="max-width: 1920px;padding: 0px;">
+                    <div class="row" style="margin-right: -8px;margin-left: -8px;">
+                        <div class="col-md-6 col-lg-6" data-aos="fade-right" data-aos-duration="750" style="padding-right: 8px;padding-left: 8px;"><img class="img-fluid mb-2" width="766" height="394" src="assets/img/companies/Rectangle%206.png">
+                            <div class="d-flex mb-4">
+                                <p><a href="https://VOLTRAC.eu" target="_blank">VOLTRAC.eu</a></p>
+                                <p class="ms-4 ps-0 me-5">Autonomous, electric tractor <br>vehicle for agriculture &amp; defence</p>
+                                <p class="ms-4" style="color: rgba(33,37,41,0.5);">First Seed<br>2025</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-left" data-aos-duration="750" id="companies" style="padding-right: 8px;padding-left: 8px;"><img class="img-fluid mb-2" width="766" height="394" src="assets/img/companies/Rectangle%207.png">
+                            <div class="d-flex mb-4">
+                                <p><a href="https://sunriserobotics.co" target="_blank">Sunriserobotics.co</a></p>
+                                <p class="ms-4 ps-0 me-5">Robots that visualise<br>their tasks</p>
+                                <p class="ms-4" style="color: rgba(33,37,41,0.5);">first check<br>2025</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-right" data-aos-duration="750" style="padding-right: 8px;padding-left: 8px;"><img class="img-fluid mb-2" width="766" height="394" src="assets/img/companies/Rectangle%208.png">
+                            <div class="d-flex mb-4">
+                                <p><a href="https://highcat.io" target="_blank">highcat.io</a></p>
+                                <p class="ms-4 ps-0 me-5">european surveillance <br>AI drone swarms&nbsp;</p>
+                                <p class="ms-4" style="color: rgba(33,37,41,0.5);">First Seed<br>2025</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-left" data-aos-duration="750" style="padding-right: 8px;padding-left: 8px;"><img class="img-fluid mb-2" width="766" height="394" src="assets/img/companies/lumalab.png">
+                            <div class="d-flex mb-4">
+                                <p><a href="https://Lumalabs.ai" target="_blank">Lumalabs.ai</a></p>
+                                <p class="ms-4 ps-0 me-5">fundational AI models<br>for  3D &amp; video</p>
+                                <p class="ms-4" style="color: rgba(33,37,41,0.5);">First check<br>2025</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-right" data-aos-duration="750" style="padding-right: 8px;padding-left: 8px;"><img class="img-fluid mb-2" width="766" height="394" src="assets/img/companies/sensmore.png">
+                            <div class="d-flex mb-4">
+                                <p>sensmore.ai</p>
+                                <p class="ms-4 ps-0 me-5">ai in automation for heavy machinery</p>
+                                <p class="ms-4" style="color: rgba(33,37,41,0.5);">First check<br>2025</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-left" data-aos-duration="750" style="padding-right: 8px;padding-left: 8px;"><img class="img-fluid mb-2" width="766" height="394" src="assets/img/companies/hyperdrives.png">
+                            <div class="d-flex mb-4">
+                                <p>hyperdrives.com</p>
+                                <p class="ms-4 ps-0 me-5">mass produceable electrical drive systems</p>
+                                <p class="ms-4" style="color: rgba(33,37,41,0.5);">First check<br>2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container d-flex flex-column align-items-center" style="max-width: 1920px;">
+                    <p class="text-decoration-none text-center mt-4" style="font-size: 1.1rem;"><a href="Companies.html"><span style="color: rgb(0, 0, 0);">View All portfolio companies↗</span></a></p>
+                </div>
+            </section>
+            <section class="pt-8 mb-9" id="euinc" style="padding-right: 1.5rem;padding-left: 1.5rem;">
+                <div class="container text-center d-flex flex-column align-items-center mt-0 mb-7 pb-4" style="background: #2A13FE;max-width: 1920px;"><script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.77/build/spline-viewer.js"></script>
+<spline-viewer id="spline-container" url="https://prod.spline.design/zRwS38lwlR3TH5a9/scene.splinecode"></spline-viewer>
+
+<script>
+    // Warte, bis das Dokument vollständig geladen ist
+  document.addEventListener("DOMContentLoaded", function() {
+    console.log('Spline Logo erfolgreich entfernt');
+    // Funktion zur Entfernung des Logos
+    function removeLogo() {
+      // Finde das spline-viewer Element
+      const splineViewer = document.querySelector('spline-viewer');
+
+      if (splineViewer && splineViewer.shadowRoot) {
+        // Versuche direkt auf das Logo zuzugreifen
+        const logo = splineViewer.shadowRoot.querySelector('#logo');
+        if (logo) {
+          logo.remove();
+          console.log('Spline Logo erfolgreich entfernt');
+          return;
+        }
+      }
+
+      // Falls das Logo noch nicht gefunden wurde, erneut versuchen
+      setTimeout(removeLogo, 500);
+    }
+
+    // Starte den Prozess
+    removeLogo();
+  });
+      var modal = document.getElementById('modal-cover');
+
+      function show_modal() {
+        modal.style.display = 'flex';
+      }
+
+      // Handler an Close-Button binden
+      document.getElementById('modal-close').addEventListener('click',
+      function() {
+        modal.style.display = 'none';
+      });
+
+      // Timer starten
+      setTimeout(show_modal, 1000);
+    </script>
+
+                    <p class="mt-4 mb-5" data-aos="fade" data-aos-duration="750" style="color: #e6e6e6;font-size: 2rem;">EU–INC</p>
+                    <p class="mb-4 mb-" data-aos="fade" data-aos-duration="750" style="color: #e6e6e6;font-size: 1.2rem;width: 800px;max-width: 90%;line-height: 1.5rem;">Europe has the talent, ambition, and ecosystems to create innovative companies, but fragmentation between European nations is holding us back.</p><a class="btn btn-primary mb-4 btn_pink_blau" role="button" data-aos="fade" data-aos-duration="750" style="padding: 8px;border-radius: 0;border-width: 0px;border-color: #e31961;color: rgb(255,255,255);background: #e31961;font-size: 1.2rem;text-transform: uppercase;line-height: 0.8rem;" href="https://www.eu-inc.org/" target="_blank">Let’s Fix this</a>
+                </div>
+            </section>
+            <section class="mt-8 mb-9" id="testimonials">
+                <div class="container text-center" style="max-width: 1920px;padding: 0px;">
+                    <h2 class="d-inline-block me-0 mb-5" style="border: 1px solid rgb(0,0,0);">What people say about us</h2>
+                    <div id="voices-container"><div id="initial-dividers">
+    <hr/>
+    <hr/>
+</div>
+                        <div class="voice-item">
+                            <div class="d-flex flex-column align-items-center">
+                                <p class="mt-5 mb-3 voices-zitat">&gt;&gt; Andreas is hands down probably the best investor I've met, hard to describe how much value he brings or just how amazing he is to work with. If you're lucky enough to get him on your cap table, please make it happen. You won't regret it. &lt;&lt;</p>
+                                <p class="mb-5 voices-person" style="font-size: 8px;">Andrew Gazdecki,&nbsp;Microacquire</p>
+                            </div><div id="initial-dividers">
+    <hr/>
+    <hr/>
+</div>
+                        </div>
+                        <div class="voice-item">
+                            <div class="d-flex flex-column align-items-center">
+                                <p class="mt-5 mb-3 voices-zitat">&gt;&gt; Quite simply, MainStreet would not exist without the support of Andreas and Remote First. Andreas took the time to get to know me, stayed close, and feedbacked as we iterated the early product development of MainStreet. Andreas was the first investor call we made after our "Eureka!" moment during product development, and his investment, support, and conviction were critical to putting together our first seed round. Deeply grateful to have Andreas on our cap table! &lt;&lt;</p>
+                                <p class="mb-5 voices-person" style="font-size: 8px;">Doug Ludlow, Mainstreet</p>
+                            </div><div id="initial-dividers">
+    <hr/>
+    <hr/>
+</div>
+                        </div>
+                        <div class="voice-item">
+                            <div class="d-flex flex-column align-items-center">
+                                <p class="mt-5 mb-3 voices-zitat">&gt;&gt; Andreas, you’re one of the most helpful people we’ve all worked with. Generous with your time and feedback. We’ve not had higher impact for each investors. &lt;&lt;</p>
+                                <p class="mb-5 voices-person" style="font-size: 8px;">Job van der Voort, Remote</p>
+                            </div><div id="initial-dividers">
+    <hr/>
+    <hr/>
+</div>
+                        </div>
+                        <div class="voice-item">
+                            <div class="d-flex flex-column align-items-center">
+                                <p class="mt-5 mb-3 voices-zitat">&gt;&gt; I must say you are one of the best at keeping up with me and fredrik and i imagine this is the same for your other portfolio companies. The thing is, you're very good at being disarming, you're smart, and give direct opinions and concrete advice where you can. If you find a clone of yourself then let me know as i'd be eager to build a relationship with a coach like you. &lt;&lt;</p>
+                                <p class="mb-5 voices-person" style="font-size: 8px;">Tobias Enholm, Braindump</p>
+                            </div><div id="initial-dividers">
+    <hr/>
+    <hr/>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-9" data-aos="fade-up" data-aos-duration="750" id="yt-video-1">
+                <div class="container mt-8" style="max-width: 1920px;padding: 0px;">
+                    <h2 class="d-inline-block me-0 mb-5" style="border: 1px solid rgb(0,0,0);">we feature the most ambitious european startups.</h2>
+                </div>
+                <div class="container">
+                    <div class="row gy-5">
+                        <div class="col-md-6"><iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/L_tWbrvd3E0" class="aaa" width="100%" height="100%"></iframe></div>
+                        <div class="col-md-6"><iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/bJlGIijn_-w" class="aaa" width="100%"></iframe></div>
+                    </div>
+                </div>
+            </section>
+            <section class="mb-9" id="faq">
+                <div class="container mt-8" style="padding: 0px;max-width: 1920px;">
+                    <h2 class="d-inline-block me-0 mb-4" style="border: 1px solid rgb(0,0,0);">FAQs</h2><div id="accordion-2" class="accordion" role="tablist">
+    <div class="accordion-item" style="background-color: transparent; border: none; box-shadow: none;">
+        <h2 class="accordion-header" role="tab" style="width: 100%;">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-1" aria-expanded="true" aria-controls="accordion-2 .item-1" style="background-color: transparent; border: none; box-shadow: none;">
+                <span class="question-number">01</span>
+                <span class="question-text">WHAT'S THE BEST WAY TO REACH OUT FOR INVESTMENTS?</span>
+            </button>
+        </h2>
+        <div class="accordion-collapse collapse item-1" role="tabpanel" data-bs-parent="#accordion-2">
+            <div class="accordion-body" style="background-color: transparent; border: none; box-shadow: none;">
+                <p style="margin-right: 0.2rem">↳</p>
+                <p class="mb-0">COME INTRODUCED THROUGH SOMEONE WE KNOW. ALTERNATIVELY, YOU CAN USE THIS FORM HERE.<br><br>DISCLAIMER: <br> WE ARE NOT ABLE TO RESPOND TO ALL REQUESTS. IF WE ARE INTERESTED, WE WILL REPLY, OTHERWISE WE WON'T WASTE YOUR TIME. 10% OF OUR INVESTMENTS COME THROUGH THIS FORM. YES THIS SOUNDS LOW.  BUT THIS IS TRUE FOR EVERY VC, WE ARE JUST MORE HONEST ABOUT IT. IF YOU STRUGGLE TO FUNDRAISE CONSIDER FOLLOWING THIS PROCESS.</p>
+            </div>
+        </div>
+        <hr style="margin: 0;margin-top: 2px;color: rgb(31,31,31);" />
+        <hr style="margin: 0;margin-top: 2px;color: rgb(31,31,31);" />
+    </div>
+    <div class="accordion-item" style="background-color: transparent; border: none; box-shadow: none;">
+        <h2 class="accordion-header" role="tab" style="width: 100%;">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-2" aria-expanded="false" aria-controls="accordion-2 .item-2" style="background-color: transparent; border: none; box-shadow: none;">
+                <span class="question-number">02</span>
+                <span class="question-text">WHAT COMPANIES ARE A GOOD FIT FOR THE FUND?</span>
+            </button>
+        </h2>
+        <div class="accordion-collapse collapse item-2" role="tabpanel" data-bs-parent="#accordion-2">
+            <div class="accordion-body" style="background-color: transparent; border: none; box-shadow: none;">
+                <p style="margin-right: 0.2rem">↳</p>
+                <p class="mb-0">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+            </div>
+        </div>
+        <hr style="margin: 0;margin-top: 2px;color: rgb(31,31,31);" />
+        <hr style="margin: 0;margin-top: 2px;color: rgb(31,31,31);" />
+    </div>
+    <div class="accordion-item" style="background-color: transparent; border: none; box-shadow: none;">
+        <h2 class="accordion-header" role="tab" style="width: 100%;">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-3" aria-expanded="false" aria-controls="accordion-2 .item-3" style="background-color: transparent; border: none; box-shadow: none;">
+                <span class="question-number">03</span>
+                <span class="question-text">HOW DO YOU EVALUATE COMPANIES?</span>
+            </button>
+        </h2>
+        <div class="accordion-collapse collapse item-3" role="tabpanel" data-bs-parent="#accordion-2">
+            <div class="accordion-body" style="background-color: transparent; border: none; box-shadow: none;">
+                <p style="margin-right: 0.2rem">↳</p>
+                <p class="mb-0">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+            </div>
+        </div>
+        <hr style="margin: 0;margin-top: 2px;color: rgb(31,31,31);" />
+        <hr style="margin: 0;margin-top: 2px;color: rgb(31,31,31);" />
+    </div>
+    <div class="accordion-item" style="background-color: transparent; border: none; box-shadow: none;">
+        <h2 class="accordion-header" role="tab" style="width: 100%;">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-4" aria-expanded="false" aria-controls="accordion-2 .item-4" style="background-color: transparent; border: none; box-shadow: none;">
+                <span class="question-number">04</span>
+                <span class="question-text">WHY A FOCUS ON FIRST-CHECK INVESTMENTS?</span>
+            </button>
+        </h2>
+        <div class="accordion-collapse collapse item-4" role="tabpanel" data-bs-parent="#accordion-2">
+            <div class="accordion-body" style="background-color: transparent; border: none; box-shadow: none;">
+                <p style="margin-right: 0.2rem">↳</p>
+                <p class="mb-0">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+            </div>
+        </div>
+        <hr style="margin: 0;margin-top: 2px;color: rgb(31,31,31);" />
+        <hr style="margin: 0;margin-top: 2px;color: rgb(31,31,31);" />
+    </div>
+    <div class="accordion-item" style="background-color: transparent; border: none; box-shadow: none;">
+        <h2 class="accordion-header" role="tab" style="width: 100%;">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-2 .item-5" aria-expanded="false" aria-controls="accordion-2 .item-5" style="background-color: transparent; border: none; box-shadow: none;">
+                <span class="question-number">05</span>
+                <span class="question-text">HOW LONG HAVE YOU BEEN INVESTING?</span>
+            </button>
+        </h2>
+        <div class="accordion-collapse collapse item-5" role="tabpanel" data-bs-parent="#accordion-2">
+            <div class="accordion-body" style="background-color: transparent; border: none; box-shadow: none;">
+                <p style="margin-right: 0.2rem">↳</p>
+                <p class="mb-0">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+            </div>
+        </div>
+        <hr style="margin: 0;margin-top: 2px;color: rgb(31,31,31);" />
+        <hr style="margin: 0;margin-top: 2px;color: rgb(31,31,31);" />
+    </div>
+</div>
+                </div>
+            </section><a class="d-flex justify-content-end me-4" href="#top" style="font-size: 1.1rem;">Back to top&nbsp;↑</a>
+            <footer class="mt-4 pt-4" style="background: url(&quot;assets/img/footer.png&quot;) left / cover no-repeat;min-height: 40vh;">
+                <div class="container" style="max-width: 1920px;padding: 0px;">
+                    <div class="col d-flex justify-content-between align-items-center"><img class="img-fluid" width="298" height="38" src="assets/img/Logo_PROTOTYPE_bitmap%202.png" style="max-width: 200px;"></div>
+                </div>
+                <div class="container d-flex flex-column mt-5 mb-0 pb-9" style="max-width: 1920px;padding: 0px;">
+                    <p class="me-5 footer-p"><a href="impressum.html">Impressum</a><br><br><a href="privacypolicy.html">privacy policy</a><br><br><br><br><br><a href="https://www.youtube.com/@prototypecap" target="_blank">Youtube↗</a><br><br><a href="https://www.linkedin.com/in/andreasklinger/?originalSubdomain=de" target="_blank">Linkedin↗</a><br><br><a href="https://x.com/andreasklinger?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank">X↗</a></p>
+                </div>
+                <div class="container mt-8" style="max-width: 1920px;">
+                    <p class="mt-0 mb-0 pb-3">©2025 Protoype</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/aos.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/hover-effect.js"></script>
+    <script src="assets/js/scroll-highlight.js"></script>
+    <script src="assets/js/scroll-video-logic.js"></script>
+</body>
+
+</html>

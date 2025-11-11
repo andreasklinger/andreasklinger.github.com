@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>PROTOTYPE_V21</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/IBM%20Plex%20Mono.css">
+    <link rel="stylesheet" href="assets/css/bss-overrides.css">
+    <link rel="stylesheet" href="assets/css/accordion.css">
+    <link rel="stylesheet" href="assets/css/Button.css">
+    <link rel="stylesheet" href="assets/css/companies.css">
+    <link rel="stylesheet" href="assets/css/EU-spline.css">
+    <link rel="stylesheet" href="assets/css/preloader.css">
+    <link rel="stylesheet" href="assets/css/responsive-fonts.css">
+    <link rel="stylesheet" href="assets/css/scroll-video.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/testimonial.css">
+</head>
+
+<body style="background: #e6e6e6;">
+<div class="custom-mobile-menu-container" id="customMobileMenu">
+    <div class="custom-mobile-menu-header" id="menuMobileHeader">
+        <span id="menuMobileText">Menu</span>
+    </div>
+    <div class="custom-mobile-menu-content">
+        <!-- ======================================== -->
+        <!-- FÜGEN SIE HIER IHRE 3 BUTTONS EIN         -->
+        <a href="/index.html#portfolio" class="btn btn-primary mb-2 btn_white" style="border-radius: 0;border-width: 0px;border-color: #e31961;color: rgb(0,0,0);background: rgba(255,255,255,0.3);font-size: 16px;line-height: 10px;text-transform: uppercase;padding: 8px;backdrop-filter: blur(2px);-webkit-backdrop-filter: blur(2px);">Portfolio</a>
+        <a href="/index.html#euinc" class="btn btn-secondary mb-2 btn_white" style="border-radius: 0;border-width: 0px;border-color: #e31961;color: rgb(0,0,0);background: rgba(255,255,255,0.3);font-size: 16px;line-height: 10px;text-transform: uppercase;padding: 8px;backdrop-filter: blur(2px);-webkit-backdrop-filter: blur(2px);">eu–inc</a>
+        <a href="https://www.youtube.com/channel/UCI8QkjESeS67n1HZ51hrO1g?sub_confirmation=1" class="btn btn-danger btn_blue" style="border-radius: 0;border-width: 0px;border-color: #e31961;color: rgb(255,255,255);background: #2A13FE;font-size: 16px;line-height: 10px;text-transform: uppercase;padding: 8px;">Subscribe on yt</a>
+        <!-- ======================================== -->
+    </div>
+</div>
+
+<style>
+    /* Der Hauptcontainer für das Menü */
+    .custom-mobile-menu-container {
+        display: none; 
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1050;
+        width: 52px;    
+        height: 26px;
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(2px);
+        cursor: pointer;
+        overflow: hidden;
+        transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+    }
+
+    /* Media Query: Gilt nur für Bildschirme bis 650px Breite */
+    @media (max-width: 650px) {
+        /* Macht das mobile Menü sichtbar */
+        .custom-mobile-menu-container {
+            display: block;
+        }
+
+        /* Blendet die Desktop-Navigation aus, wenn das mobile Menü aktiv ist */
+        #navbar {
+            display: none !important;
+        }
+    }
+
+    /* Der geöffnete Zustand des Containers */
+    .custom-mobile-menu-container.is-open {
+        width: 175px;
+        height: 160px;
+    }
+
+    /* Der klickbare Header-Bereich */
+    .custom-mobile-menu-header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 6px;
+        width: 100%;
+        height: 26px;
+        color: #343a40;
+        user-select: none;
+        white-space: nowrap;
+        font-size: 16px;
+    }
+
+    /* Der Inhaltsbereich, der die Buttons hält */
+    .custom-mobile-menu-content {
+        padding: 30px 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        transition-delay: 0.1s;
+    }
+    
+    .custom-mobile-menu-content .btn {
+        white-space: nowrap;
+    }
+
+    /* Macht den Inhalt sichtbar, wenn der Container geöffnet ist */
+    .custom-mobile-menu-container.is-open .custom-mobile-menu-content {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuContainer = document.getElementById('customMobileMenu');
+        const menuHeader = document.getElementById('menuMobileHeader');
+        const menuText = document.getElementById('menuMobileText');
+        const menuLinks = document.querySelectorAll('.custom-mobile-menu-content a');
+
+        function closeMenu() {
+            menuText.textContent = 'Menu';
+            menuContainer.classList.remove('is-open');
+        }
+
+        menuHeader.addEventListener('click', function(event) {
+            // Verhindert, dass der Klick auf den Header vom window-Listener (siehe unten) verarbeitet wird
+            event.stopPropagation(); 
+            
+            const isOpen = menuContainer.classList.contains('is-open');
+            if (isOpen) {
+                closeMenu();
+            } else {
+                menuText.textContent = 'Close';
+                menuContainer.classList.add('is-open');
+            }
+        });
+        
+        menuLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                closeMenu();
+            });
+        });
+        
+        // NEU: Listener für Klicks außerhalb des Menüs
+        window.addEventListener('click', function(event) {
+            // Prüft, ob das Menü offen ist
+            const isOpen = menuContainer.classList.contains('is-open');
+            
+            // Wenn das Menü offen ist UND das geklickte Element NICHT das Menü selbst oder ein Teil davon ist...
+            if (isOpen && !menuContainer.contains(event.target)) {
+                // ...dann schließe das Menü.
+                closeMenu();
+            }
+        });
+
+        // Verhindert, dass ein Klick IM Menü (aber nicht auf einen Link) es schließt
+        menuContainer.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    });
+</script>
+
+    <div class="position-fixed d-flex z-3 justify-content-end" id="navbar" style="right: 0"><a class="btn btn-primary btn-sm end-0 z-3 me-5 mt-4 mb-0 btn_white" role="button" style="border-radius: 0;border-width: 0px;border-color: #e31961;color: rgb(0,0,0);background: rgba(255,255,255,0.3);font-size: 1rem;line-height: 10px;text-transform: uppercase;padding: 8px;backdrop-filter: blur(2px);-webkit-backdrop-filter: blur(2px);" data-bs-target="#portfolio" href="index.html#portfolio" target="_top">PORTFOLIO</a><a class="btn btn-primary btn-sm end-0 z-3 me-5 mt-4 mb-0 btn_white" role="button" style="border-radius: 0;border-width: 0px;border-color: #e31961;color: rgb(0,0,0);background: rgba(255,255,255,0.3);font-size: 1rem;line-height: 10px;text-transform: uppercase;padding: 8px;backdrop-filter: blur(2px);-webkit-backdrop-filter: blur(2px);" href="index.html#euinc">EU–INC.</a><a class="btn btn-primary btn-sm end-0 z-3 me-4 mt-4 mb-0 btn_blue" role="button" style="border-radius: 0;border-width: 0px;border-color: #e31961;color: rgb(255,255,255);background: #2A13FE;font-size: 1rem;line-height: 10px;text-transform: uppercase;padding: 8px;" href="http://youtube.com/@prototypecap?sub_confirmation=1" target="_blank">subscribe on YT</a></div>
+    <section class="d-flex flex-column justify-content-start align-items-start align-content-start mb-6" style="padding-top: 1.5rem;">
+        <div class="container d-flex flex-column align-items-start" style="max-width: 1920px;"><a href="index.html#companies"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="mb-4" style="font-size: 2rem;margin-left: -0.35rem;">
+                    <path d="M20.3284 11.0001V13.0001L7.50011 13.0001L10.7426 16.2426L9.32842 17.6568L3.67157 12L9.32842 6.34314L10.7426 7.75735L7.49988 11.0001L20.3284 11.0001Z" fill="currentColor"></path>
+                </svg></a>
+            <h2 class="d-inline me-0 mb-4" style="border: 1px solid rgb(0,0,0);">Companies we work with</h2>
+            <p style="max-width: 500px;">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        </div>
+    </section>
+    <section>
+        <div class="container" style="max-width: 1920px;">
+            <div class="table-responsive mb-8" style="max-width: 1400px;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="background: rgba(255,255,255,0);border-style: none;"><span style="font-weight: normal !important;">NAME</span></th>
+                            <th style="background: rgba(255,255,255,0);border-style: none;"><span style="font-weight: normal !important;">ABOUT</span></th>
+                            <th style="background: rgba(255,255,255,0);border-style: none;"><span style="font-weight: normal !important; color: rgb(33, 37, 41);">IVESTMENT ROUND</span></th>
+                            <th style="background: rgba(255,255,255,0);border-style: none;text-align: right;"><span style="font-weight: normal !important; color: rgb(33, 37, 41);">YEAR</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="mb-0 pb-0" data-image="assets/img/companies/firma-01.jpg">
+                            <td style="background: rgba(255,255,255,0);border-style: none;">
+                                <div class="d-flex align-items-baseline"><span class="me-2 table-number">01</span><span class="table-name">Lumalabs</span></div>
+                            </td>
+                            <td class="table-about" style="background: rgba(255,255,255,0);border-style: none;">fundational AI models<br>for  3D &amp; video</td>
+                            <td style="background: rgba(255,255,255,0);border-style: none;">First Seed</td>
+                            <td style="background: rgba(255,255,255,0);border-style: none;text-align: right;">2025</td>
+                        </tr>
+                        <tr class="mb-0 pb-0" data-image="assets/img/companies/firma-02.jpg">
+                            <td style="background: rgba(255,255,255,0);border-style: none;">
+                                <div class="d-flex align-items-baseline"><span class="me-2 table-number">01</span><span class="table-name">Lumalabs</span></div>
+                            </td>
+                            <td class="table-about" style="background: rgba(255,255,255,0);border-style: none;">fundational AI models<br>for  3D &amp; video</td>
+                            <td style="background: rgba(255,255,255,0);border-style: none;">First Seed</td>
+                            <td style="background: rgba(255,255,255,0);border-style: none;text-align: right;">2025</td>
+                        </tr>
+                        <tr class="mb-0 pb-0" data-image="assets/img/companies/firma-03.jpg">
+                            <td style="background: rgba(255,255,255,0);border-style: none;">
+                                <div class="d-flex align-items-baseline"><span class="me-2 table-number">01</span><span class="table-name">Lumalabs</span></div>
+                            </td>
+                            <td class="table-about" style="background: rgba(255,255,255,0);border-style: none;">fundational AI models<br>for  3D &amp; video</td>
+                            <td style="background: rgba(255,255,255,0);border-style: none;">First Seed</td>
+                            <td style="background: rgba(255,255,255,0);border-style: none;text-align: right;">2025</td>
+                        </tr>
+                        <tr class="mb-0 pb-0" data-image="assets/img/companies/firma-04.jpg">
+                            <td style="background: rgba(255,255,255,0);border-style: none;">
+                                <div class="d-flex align-items-baseline"><span class="me-2 table-number">01</span><span class="table-name">Lumalabs</span></div>
+                            </td>
+                            <td class="table-about" style="background: rgba(255,255,255,0);border-style: none;">fundational AI models<br>for  3D &amp; video</td>
+                            <td style="background: rgba(255,255,255,0);border-style: none;">First Seed</td>
+                            <td style="background: rgba(255,255,255,0);border-style: none;text-align: right;">2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div><div id="hover-image-container" style="position: fixed; pointer-events: none; z-index: 9999; transition: opacity 0.3s ease; display: block;">
+    <img src="" alt="Preview" style="max-width: 300px; max-height: 300px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); display: block;">
+</div>
+    </section>
+    <section class="mt-4 pt-4" style="background: url(&quot;assets/img/footer.png&quot;) left / cover no-repeat;min-height: 40vh;">
+        <div class="container" style="max-width: 1920px;padding: 0px;">
+            <div class="col d-flex justify-content-between align-items-center"><img class="img-fluid" width="298" height="38" src="assets/img/Logo_PROTOTYPE_bitmap%202.png" style="max-width: 200px;"></div>
+        </div>
+        <div class="container d-flex flex-column mt-5 mb-0 pb-9" style="max-width: 1920px;padding: 0px;">
+            <p class="me-5 footer-p"><a href="impressum.html">Impressum</a><br><br><a href="privacypolicy.html">privacy policy</a><br><br><br><br><br><a href="https://www.youtube.com/@prototypecap" target="_blank">Youtube↗</a><br><br><a href="https://www.linkedin.com/in/andreasklinger/?originalSubdomain=de" target="_blank">Linkedin↗</a><br><br><a href="https://x.com/andreasklinger?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank">X↗</a></p>
+        </div>
+        <div class="container mt-8" style="max-width: 1920px;">
+            <p class="mt-0 mb-0 pb-3">©2025 Protoype</p>
+        </div>
+    </section>
+    <div class="position-fixed d-flex z-3 justify-content-end" id="navbar" style="right: 0"><a class="btn btn-primary btn-sm end-0 z-3 me-5 mt-4 mb-0 btn_white" role="button" style="border-radius: 0;border-width: 0px;border-color: #e31961;color: rgb(0,0,0);background: rgba(255,255,255,0.3);font-size: 1rem;line-height: 10px;text-transform: uppercase;padding: 8px;backdrop-filter: blur(2px);-webkit-backdrop-filter: blur(2px);" data-bs-target="#portfolio" href="#portfolio" target="_top">PORTFOLIO</a><a class="btn btn-primary btn-sm end-0 z-3 me-5 mt-4 mb-0 btn_white" role="button" style="border-radius: 0;border-width: 0px;border-color: #e31961;color: rgb(0,0,0);background: rgba(255,255,255,0.3);font-size: 1rem;line-height: 10px;text-transform: uppercase;padding: 8px;backdrop-filter: blur(2px);-webkit-backdrop-filter: blur(2px);" href="#euinc">EU INC.</a><button class="btn btn-primary btn-sm end-0 z-3 me-4 mt-4 mb-0 btn_blue" type="button" style="border-radius: 0;color: rgb(255,255,255);background: #2A13FE;font-size: 1rem;line-height: 10px;text-transform: uppercase;padding: 8px;border-width: 1px;border-color: rgba(227,25,97,0);">subscribe on YT</button></div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/hover-effect.js"></script>
+    <script src="assets/js/scroll-highlight.js"></script>
+    <script src="assets/js/scroll-video-logic.js"></script>
+</body>
+
+</html>

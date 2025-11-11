@@ -1,0 +1,57 @@
+.video-scroll-container {
+  position: relative;
+  height: 250vh;
+  z-index: 1;
+}
+
+.video-section {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+#scroll-canvas {
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.overlay-content {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 2rem;
+}
+
+.overlay-content img {
+  max-width: min(40vw, 1000px);
+  min-width: 250px;
+}
+
+.overlay-content p {
+  color: #000000;
+  max-width: 500px;
+  background-color: rgba(255,255,255,0.3);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  padding: 1rem;
+}
+
+.main-content {
+  position: relative;
+  background-color: #e6e6e6;
+  margin-top: 115vh;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+  margin-top: -250vh;
+}
+

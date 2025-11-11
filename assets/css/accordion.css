@@ -1,0 +1,71 @@
+#accordion-2 .accordion-button:not(.collapsed) {
+  color: black !important;
+}
+
+#accordion-2 .accordion-button {
+  box-shadow: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  text-align: left;
+  width: 100%;
+}
+
+#accordion-2 .accordion-body {
+  display: flex;
+  padding-left: 2.4rem !important;
+  max-width: 800px;
+  padding-right: 0 !important;
+}
+
+/* Stil für die Nummer */
+
+#accordion-2 span {
+  font-size: 1.2rem!important;
+}
+
+@media (max-width: 576px) {
+  #accordion-2 span {
+    font-size: 1rem!important;
+  }
+}
+
+#accordion-2 .question-number {
+  font-size: 0.6rem!important;
+  margin-right: 0.6rem;
+  flex-shrink: 0;
+  transform: translateY(-0.4rem);
+}
+
+@media (max-width: 576px) {
+  #accordion-2 .question-number {
+    font-size: 0.8rem!important;
+    margin-right: 0.6rem;
+    flex-shrink: 0;
+    transform: translateY(-0.4rem);
+  }
+}
+
+@media (max-width: 576px) {
+  #accordion-2 .accordion-body {
+    padding-left: 2rem !important;
+  }
+}
+
+.footer-p {
+  font-size: 1.2rem;
+}
+
+.equal-height-image {
+  width: 100%;
+  aspect-ratio: 16 / 12;
+  object-fit: cover;
+}
+
+.aaa {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+

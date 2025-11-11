@@ -1,0 +1,70 @@
+.btn_blue {
+  border: 1px solid transparent!important;
+  text-decoration: none!important;
+}
+
+.btn_blue:hover {
+  background-color: #E6E6E6!important;
+  color: #2A13FE!important;
+  border: 1px solid #2A13FE!important;
+}
+
+.btn_blue:active {
+  background-color: #2A13FE!important;
+  color: #E6E6E6!important;
+  border: 1px solid #2A13FE!important;
+  text-decoration: none!important;
+}
+
+.btn_pink {
+  border: 1px solid #E31961!important;
+  text-decoration: none!important;
+}
+
+.btn_pink:hover {
+  background-color: transparent!important;
+  color: #E31961!important;
+  border: 1px solid #E31961!important;
+  text-decoration: none!important;
+}
+
+.btn_pink:active {
+  background-color: #E31961!important;
+  color: #E6E6E6!important;
+  border: 1px solid #E31961!important;
+}
+
+.btn_pink_blau {
+  border: 1px solid #E31961!important;
+}
+
+.btn_pink_blau:hover {
+  background-color: #2a13Fe!important;
+  color: #E31961!important;
+  border: 1px solid #E31961!important;
+  text-decoration: none!important;
+}
+
+.btn_pink_blau:active {
+  background-color: #E31961!important;
+  color: #E6E6E6!important;
+  border: 1px solid #E31961!important;
+}
+
+.btn_white {
+  border: 1px solid transparent!important;
+  text-decoration: none!important;
+}
+
+.btn_white:hover {
+  background-color: #2A13FE!important;
+  color: #E6E6E6!important;
+  border: 1px solid #2A13FE!important;
+}
+
+.btn_white:active {
+  background-color: #E6E6E6!important;
+  color: #2A13FE!important;
+  border: 1px solid #E6E6E6!important;
+}
+

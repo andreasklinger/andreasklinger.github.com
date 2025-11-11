@@ -1,0 +1,13 @@
+#spline-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 40vw;
+  max-height: 400px;
+}
+
+.spline-scene {
+  width: 100%;
+  height: 100%;
+}
+
